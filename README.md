@@ -115,24 +115,27 @@ Where $x_{\text{scaled}} \in [0, 1]$. If $x_{\max} = x_{\min}$, range is set to 
 Tree ensembles (ExtraTrees, RandomForest) are invariant to monotonic feature scaling. However, linear models and Batch Gradient Descent require standardized features to ensure uniform gradient descent rates and interpretable weights.
 
 ---
-
 ## 10. Correlation and Covariance Analysis
-Implemented in `src/correlation_analysis.py`:
 
-### Mathematical Formulations:
+Implemented in `src/correlation_analysis.py`.
+
+### Mathematical Formulations
+
 - **Sample Covariance:**
-  $$\operatorname{Cov}(X, Y) = \frac{1}{n - 1} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})$$
-- **Pearson Correlation Coefficient ($r$):**
-  $$r_{XY} = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y} \in [-1.0, +1.0]$$
 
-### Key Empirical Results:
-- `CE_mean` (Virtual cooling efficiency): $r = +0.998$ (Proxy for target).
-- `TS1_mean` (Cooling oil temperature): $r = -0.981$ (Strongest physical symptom).
-- `FS1_mean` (Primary volume flow rate): $r = +0.412$ (Fluid throughput association).
-- **Core Scientific Principle:** Correlation measures association, **not causation**. High oil temperature is a symptom of reduced cooling capacity, not the sole mechanical cause.
+  `Cov(X, Y) = [1 / (n - 1)] × Σ(xᵢ - x̄)(yᵢ - ȳ)`
 
----
+- **Pearson Correlation Coefficient (r):**
 
+  `r(X, Y) = Cov(X, Y) / (σₓ × σᵧ)`, where `-1 ≤ r ≤ +1`.
+
+### Key Empirical Results
+
+- `CE_mean` (Virtual cooling efficiency): **r = +0.998** — proxy for the target.
+- `TS1_mean` (Cooling oil temperature): **r = -0.981** — strongest physical symptom.
+- `FS1_mean` (Primary volume flow rate): **r = +0.412** — fluid throughput association.
+
+**Core Scientific Principle:** Correlation measures association, **not causation**. High oil temperature is associated with reduced cooling capacity, but it is not necessarily the sole mechanical cause.
 ## 11. Regression Models Implemented
 1. **Ordinary Least Squares (OLS) Linear Regression:** Fits hyperplane $\hat{y} = \mathbf{X}\mathbf{w} + b$ by minimizing unregularized MSE.
 2. **Ridge Regression ($L_2$ Regularization):** Adds penalty $\alpha \|\mathbf{w}\|_2^2$ to control coefficient inflation in collinear sensor environments.
