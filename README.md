@@ -229,6 +229,13 @@ Evaluated via 5-Fold Cross-Validation on the 80% Training Set and validated on t
 | Statistical_Without_CE_CP | Ridge ($\alpha=10$) | 57 | 4.5349 | 4.6663 | 0.9879 |
 | Best_Physical_Predictors | Manual Batch GD | 20 | — | 9.0055 | 0.9548 |
 
+
+### Test RMSE Comparison
+
+The chart below compares the test RMSE of the evaluated regression models. Lower RMSE indicates smaller prediction errors.
+
+![Hydraulic System Model Comparison](outputs/figures/hydraulic_test_rmse_comparison.png)
+
 ---
 
 ## 18. Bias, Variance, Overfitting, and Dataset Order Limitations
